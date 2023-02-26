@@ -98,7 +98,7 @@ if (selection2 == 1)
     TransferServerFiles(1, zipFilePath, AWSAccessKey.ToString(), AWSSecretKey.ToString());
     // Copy Player Data to Server
     Console.WriteLine("Extracting Server Files...");
-    ZipFile.ExtractToDirectory(zipFilePath, chosenSaveDir + @"\Multiplayer\" + ServerSaveID, true);
+    ZipFile.ExtractToDirectory(zipFilePath, chosenSaveDir + @"\Multiplayer\", true);
     Console.WriteLine("Copying player data...");
     CopyPlayerDataToServer(chosenSaveDir);
     Console.WriteLine("Done, close this and go play omg.");
