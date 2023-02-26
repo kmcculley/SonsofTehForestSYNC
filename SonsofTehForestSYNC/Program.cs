@@ -101,6 +101,9 @@ if (selection2 == 1)
     ZipFile.ExtractToDirectory(zipFilePath, chosenSaveDir + @"\Multiplayer\" + ServerSaveID, true);
     Console.WriteLine("Copying player data...");
     CopyPlayerDataToServer(chosenSaveDir);
+    Console.WriteLine("Done, close this and go play omg.");
+    Console.ReadLine();
+    Environment.Exit(0);
 }
 else if (selection2 == 2)
 {
@@ -108,6 +111,9 @@ else if (selection2 == 2)
     // Copy Player Data To Client
     Console.WriteLine("Copying player data...");
     CopyPlayerDataToClient(chosenSaveDir);
+    Console.WriteLine("Done, close this and go play omg.");
+    Console.ReadLine();
+    Environment.Exit(0);
 }
 else if (selection2 == 3)
 {
@@ -121,6 +127,9 @@ else if (selection2 == 3)
     // Copy Player Data to Client
     Console.WriteLine("Copying player data...");
     CopyPlayerDataToClient(chosenSaveDir);
+    Console.WriteLine("Its done. You can close this now, bye.");
+    Console.ReadLine();
+    Environment.Exit(0);
 }
 else if (selection2 == 5)
 {
