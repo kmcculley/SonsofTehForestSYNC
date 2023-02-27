@@ -154,6 +154,8 @@ else
 static void CopyPlayerDataToClient(string ChosenSaveDir)
 {
     var filesToCopy = new DirectoryInfo(ChosenSaveDir + @"\Multiplayer\" + ServerSaveID).GetFiles("Player*").Select(file => file.FullName);
+    var filesToCopy2 = new DirectoryInfo(ChosenSaveDir + @"\Multiplayer\" + ServerSaveID).GetFiles("GameStateSaveDat*").Select(file => file.FullName);
+    var filesToCopy3 = new DirectoryInfo(ChosenSaveDir + @"\Multiplayer\" + ServerSaveID).GetFiles("SaveDat*").Select(file => file.FullName);
 
     string targetDir = GetLastModifiedDirectory(ChosenSaveDir + @"\MultiplayerClient");
     foreach (string fileToCopy in filesToCopy)
@@ -162,6 +164,12 @@ static void CopyPlayerDataToClient(string ChosenSaveDir)
 
         File.Copy(fileToCopy, destination, true);
     }
+    string destination2 = Path.Combine(targetDir, Path.GetFileName(filesToCopy2.First()));
+    string destination3 = Path.Combine(targetDir, Path.GetFileName(filesToCopy3.First()));
+
+    File.Copy(filesToCopy2.First(), destination2, true);
+    File.Copy(filesToCopy3.First(), destination3, true);
+
 }
 
 static void CopyPlayerDataToServer(string ChosenSaveDir)
